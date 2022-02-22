@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poor+Story&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
 
 * {
     margin: 0;
@@ -6,6 +7,7 @@
     list-style: none;
     text-decoration: none;
     box-sizing: border-box;
+    font-family: 'Jua', sans-serif;
 }
 
 .main-page {
