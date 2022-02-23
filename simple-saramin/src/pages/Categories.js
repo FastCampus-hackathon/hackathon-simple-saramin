@@ -6,12 +6,13 @@ import school from "../img/school.svg";
 import styled from "styled-components";
 import { useState } from "react";
 import Detail from "./Detail";
+import SearchButtonArea from "../pages/SearchButtonArea.jsx";
 
 const CategoryWrap = styled.div`
     padding:20px 10px 10px 20px;
-    background-color: #F0F0F0;
+    background-color: #D2E1FF;
     height: 350px;
-
+    
 `;
 const SelectBox = styled.div`
     display:flex;
@@ -50,6 +51,7 @@ const SecondSection = styled.section`
   top: 370px;
   left: 0;
 `;
+
 
 function Categories() {
     const [click, setClick] = useState("location");
@@ -109,6 +111,9 @@ function Categories() {
         </CategoryWrap>
         <Detail searchData={searchData} setsearchData={setsearchData} props={click} bool="true">
         </Detail>
+        
+      {/* <SearchButtonArea>이거인데 왜이래</SearchButtonArea> */}
+
         </SecondSection>
     );
 }

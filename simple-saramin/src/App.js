@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 import "./App.css";
 import {ReactComponent as Tiger} from "./img/tiger.svg"
@@ -7,8 +7,28 @@ import logo from "./img/saraminlogo.gif"
 import Categories from "./pages/Categories";
 import TypeAnimation from 'react-type-animation';
 import Typist from "react-typist";
+import SearchButtonArea from "./pages/SearchButtonArea.jsx"
+import SearchListBoard from "./components/SearchListBoard.jsx"
+import SearchListBoard2 from "./components/SearchListBoard2.jsx"
+import SearchListBoard3 from "./components/SearchListBoard3.jsx"
+import SearchListBoard4 from "./components/SearchListBoard4.jsx"
+import SearchListBoard5 from "./components/SearchListBoard5.jsx"
+import SearchListBoard6 from "./components/SearchListBoard6.jsx"
+import ListCard from "./components/listCard.jsx"
 // import Salary from "./components/Salary.jsx"
+// MenuSet
 
+const MenuSet = styled.div`
+  position: absolute;
+  top:700px;
+  left: 0;
+  width: 100%;
+  height: 200px;
+  background-color: #E3ECF5;
+  display:flex;
+  justify-content:space-around;
+  align-items:center
+`;
 
 const Section = styled.section`
   position: absolute;
@@ -94,6 +114,14 @@ const ScopeSvg = styled(Scope)`
 
 
 
+const FinalList = styled.ul`
+background-color:red;
+position:absolute;
+width:100%;
+min-height:200px;
+top: 900px
+`;
+
 
 export const UserContext = createContext();
 
@@ -106,6 +134,12 @@ function App() {
   const [jobSearch,setJobSearch]= useState([])
   const [moneySearch,setMoneySearch]= useState([])
   const [schoolSearch,setSchoolSearch]= useState([])
+  const [sectorSearch2,setSectorSearch2] = useState([])
+  const [locationSearch2,setLocationSearch2]= useState([])
+  const [jobSearch2,setJobSearch2]= useState([])
+  const [moneySearch2,setMoneySearch2]= useState([])
+  const [schoolSearch2,setSchoolSearch2]= useState([])
+  const [listData,setListData]= useState([])
 
   useEffect(() => {
     // document.title = `You clicked ${count} times`;
@@ -115,10 +149,14 @@ function App() {
 
   return (
     <div className="main-page">
-      <UserContext.Provider value={{schoolSearch, setSchoolSearch,sectorSearch, setSectorSearch,locationSearch,setLocationSearch,jobSearch,setJobSearch,moneySearch,setMoneySearch }}>
+      <UserContext.Provider value={{
+        schoolSearch, setSchoolSearch,sectorSearch, setSectorSearch,locationSearch,setLocationSearch,jobSearch,setJobSearch,moneySearch,setMoneySearch 
+        ,schoolSearch2, setSchoolSearch2,sectorSearch2, setSectorSearch2,locationSearch2,setLocationSearch2,jobSearch2,setJobSearch2,moneySearch2,setMoneySearch2 
+        ,listData,setListData
+        }}>
        
       <img src={logo} alt="logo" />
-      <Section>
+      <Section onClick={()=>{console.log(jobSearch )}}>
         <ContainerBoxWrap>
           <ContainerBox color="#E8E8E8">
             <SpanSmallLogo>#청춘을_사람인이_응원합니다 #2022년 #호랑이_기운_받아가세요</SpanSmallLogo>
@@ -143,8 +181,21 @@ function App() {
       </Section>
 
       <Categories />
+
+      <MenuSet> 
+        <SearchListBoard/>        
+        <SearchListBoard2/>        
+        <SearchListBoard3/>        
+        <SearchListBoard4/>        
+        <SearchListBoard5/>        
+        
+        <SearchListBoard6/>        
+      </MenuSet>
+      
+        <FinalList>
+          {listData.length > 0 ? listData.map((item, index)=>(<ListCard index={index}/>)) :<div></div>}
+        </FinalList>
       </UserContext.Provider>
-       
     </div>
     
   );

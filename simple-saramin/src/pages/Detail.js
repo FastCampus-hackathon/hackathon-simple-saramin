@@ -23,12 +23,14 @@ const KeywordWrap = styled.div`
 `;
 
 const  MainKeyword= styled.ul`
-    background-color: skyblue;
+    background-color: #D2E1FF;
+    padding: 20px 39px;
     width: 30%;
     overflow-y: scroll;
 `;
 const  DetailedKeyword= styled.ul`
-    background-color:pink;
+    background-color:#D2E1FF;
+    padding: 20px 45px;
     width: 70%;
     overflow-y: scroll;
 `;
